@@ -49,3 +49,22 @@ public:
         
     }
 };
+
+
+
+// ==================================================================== Positioning Methode ==========================================================
+class Solution {
+public:
+
+    //Time Complexity : O(n);
+    // Space Complexcity : O(1);
+    int findDuplicate(vector<int>& nums) {
+        
+        // Positiong Methode
+        while(nums[0] != nums[nums[0]])
+        {
+            swap(nums[0] , nums[nums[0]]);
+        }
+        return nums[0];
+    }
+};
