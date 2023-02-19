@@ -22,13 +22,16 @@ public:
 
 // Visited Solution
 
+// Time Complexity ;- O(n);
+// Space Complexity :-O(1);
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int ans = -1;
         
         for(int i = 0 ; i < nums.size(); i++)
-        {
+        {   
+            // index ko positive kr rahe hai
            int index = abs(nums[i]);
 
             // Already Visited
