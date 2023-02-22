@@ -14,7 +14,7 @@ public:
                 return i;
             }
         }
-        return n-1;
+        return n-1;//Returning the last element in the array.
     }
 };
 
