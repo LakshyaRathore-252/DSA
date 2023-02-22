@@ -17,3 +17,49 @@ public:
         return n-1;
     }
 };
+
+
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        return max_element(nums.begin(), nums.end()) - nums.begin();
+    }
+};
+
+
+
+/*
+
+    Time Complexity : O(log N), since we have used binary search to find the target element. The time complexity
+    is logarithmic.
+
+    Space Complexity : O(logN), Recursion stack space.
+
+    Solved using Binary Search (Recursive Approach).
+
+*/
+
+
+
+
+
+/***************************************** Approach 3 First Code *****************************************/
+
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        int n = nums.size();
+        int low = 0;
+        int high = nums.size()-1;
+        while(low < high){
+            int mid = (low + high) >> 1;
+            if(nums[mid] > nums[mid+1]){
+                high = mid;
+            }
+            else{
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+};
