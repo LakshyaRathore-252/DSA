@@ -1,0 +1,60 @@
+class Solution {
+public:
+ 
+    
+         // Custom Comparator
+
+        static bool check(string &s1 , string &s2)
+        {
+            return (s1+s2) >= (s2+s1);
+        }
+
+    string largestNumber(vector<int>& nums) {
+
+
+
+        // Checking whether all values are zeroes
+
+        int x  = 0 ;
+
+        for(int i = 0;  i < nums.size() ; i++)
+        {
+            if(nums[i] == 0)
+            {
+                x++;
+            }
+        }
+
+
+        if( x == nums.size())
+        {
+            return "0" ;
+        }
+
+
+        // As input in the array is very large we have to use string array .
+
+        vector<string> s(nums.size() , " " );
+
+        for(int i  = 0 ; i < nums.size() ; i++)
+        {
+            s[i] = to_string(nums[i]);
+        }
+        
+        // we will begin sort our string array based on custom comparator .
+
+        sort(s.begin() , s.end() , check);
+
+     
+        // Append the ans of sorted array in ans variable.
+
+        string ans = "";
+
+        for(int i = 0 ; i < s.size() ; i++)
+        {
+            ans += (s[i]);
+        }
+
+        return ans;
+    }
+};
