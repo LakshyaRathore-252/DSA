@@ -29,3 +29,18 @@ public:
 
     }
 };
+
+
+Time complexity:
+Time complexity:
+total number of elements = n
+we iterate through the multiples of all elements which are marked true at that point of time-
+multiples of 2 = n/2
+multiples of 3 = n/3
+multiples of 5 = n/5
+
+So Time Complexity isO(n*log(log n))
+
+Space complexity:
+As we Created a vector prime.
+O(n)
