@@ -1,0 +1,63 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int getLength(ListNode *head)
+{
+    int l = 0;
+    ListNode *temp = head;
+
+    while (temp != NULL)
+    {
+        l++;
+        temp = temp->next;
+    }
+    return l;
+}
+    ListNode* reverseKGroup(ListNode* head, int k) {
+         if (head == NULL)
+    {
+
+        cout << "Linked List is empty" << endl;
+    }
+
+    int len = getLength(head);
+
+    if (k > len)
+    {
+        cout << "enter valid n " << endl;
+        return head;
+    }
+    // It means number of nodes in ll is  >= k
+    ListNode *prev = NULL;
+    ListNode *cur = head;
+    ListNode *forward = cur->next;
+    int count = 0;
+
+    while (count < k)
+    {
+        forward = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = forward;
+        count++;
+    }
+
+    // Step B: recurssive call
+    if (forward != NULL)
+    {
+        // we still have nodes left to reverse
+        head->next = reverseKGroup(forward, k);
+    }
+
+    return prev;
+    }
+};
