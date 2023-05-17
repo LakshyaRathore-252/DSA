@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        map<char , int> m;
+        queue<char> q;
+        for(int i = 0 ; i < s.length() ; i++)
+        {
+            m[s[i]]++;
+            q.push(s[i]);
+        }
+        
+        int i = 0;
+        while(!q.empty())
+        {
+            if(m[q.front()]==1)
+            {
+                return i;
+            }
+            q.pop();
+            i++;
+        }
+        return -1;
+    }
+};
+
+//Time complexity : O(N)
+//Space Complexity :O(N)
